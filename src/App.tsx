@@ -8,7 +8,7 @@ import Round1Page from "./Pages/Round1Page";
 import Round2Page from "./Pages/Round2Page";
 import Round3Page from "./Pages/Round3Page";
 import Round1SummaryPage from "./Pages/Round1SummaryPage";
-import QualifierSummaryPage from "./Pages/QualifierSummaryPage"; // ✅ ADD THIS
+import QualifierSummaryPage from "./Pages/QualifierSummaryPage";
 import WinnerPage from "./Pages/WinnerPage";
 
 const AppContent = () => {
@@ -19,7 +19,7 @@ const AppContent = () => {
     "/round1",
     "/round1-summary",
     "/round2",
-    "/qualifier-summary", // ✅ ADD THIS
+    "/qualifier-summary",
     "/round3",
   ].includes(location.pathname);
 
@@ -31,18 +31,10 @@ const AppContent = () => {
         <Route path="/" element={<WelcomePage />} />
         <Route path="/team-setup" element={<TeamSetupPage />} />
         <Route path="/scoreboard" element={<ScoreboardPage />} />
-
         <Route path="/round1" element={<Round1Page />} />
         <Route path="/round1-summary" element={<Round1SummaryPage />} />
-
         <Route path="/round2" element={<Round2Page />} />
-
-        {/* ✅ QUALIFIER SUMMARY ROUTE (FIXES BLANK PAGE) */}
-        <Route
-          path="/qualifier-summary"
-          element={<QualifierSummaryPage />}
-        />
-
+        <Route path="/qualifier-summary" element={<QualifierSummaryPage />} />
         <Route path="/round3" element={<Round3Page />} />
         <Route path="/winner" element={<WinnerPage />} />
       </Routes>
@@ -52,7 +44,7 @@ const AppContent = () => {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AppContent />
     </BrowserRouter>
   );
