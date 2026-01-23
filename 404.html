@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirect</title>
+    <script>
+      const redirect = location.pathname + location.search + location.hash;
+      location.replace(
+        "/pentathlon-scoreboard/?" + "redirect=" + redirect
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
